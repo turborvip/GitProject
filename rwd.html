@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+</head>
+<style>
+    body {
+        margin: 0;
+        background-color: rgb(255, 255, 255);
+        font-family: Verdana, sans-serif;
+        line-height: 1.5;
+    }
+
+    .menutop {
+        position: fixed;
+        width: 100%;
+        z-index: 4;
+        box-shadow: 0px 0px 8px 1px rgb(161, 161, 161);
+
+    }
+
+    label {
+        color: black;
+        white-space: normal;
+        font-family: Verdana, sans-serif;
+    }
+
+    .div1 {
+        position: relative;
+        float: left;
+        height: 50px;
+        width: 25%;
+        display: inline;
+        background-color: rgb(255, 255, 255);
+        color: black;
+    }
+
+    .name-shop {
+        position: relative;
+        color: rgb(0, 0, 0);
+        font-variant: small-caps;
+        left: 5%;
+        bottom: 5%;
+    }
+
+    .div2 {
+        float: left;
+        margin: 0;
+        height: 50px;
+        width: 25%;
+        display: inline;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .div3 {
+        position: relative;
+        float: left;
+        height: 50px;
+        width: 50%;
+        display: inline;
+        background-color: rgb(255, 255, 255);
+        color: black;
+    }
+
+    .div4 {
+        position: relative;
+        float: left;
+        height: 50px;
+        width: 50%;
+        display: inline;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .cards {
+        position: relative;
+        margin-top: 50px;
+        background-color: black;
+        color: white;
+        display: none;
+    }
+
+    .icon-menu {
+        width: 30%;
+        margin-top: 6%;
+        margin-right: 5%;
+        position: relative;
+        float: right;
+        cursor: pointer;
+    }
+
+    .icon_card {
+        list-style-type: none;
+        padding: 20px 40px;
+        text-align: left;
+        margin-left: -40px;
+    }
+
+    .icon_card:hover {
+        background-color: rgb(194, 194, 194);
+        transition: 0.5s;
+    }
+
+    .list_card {
+        list-style-type: none;
+        margin: 0;
+    }
+
+    .all-card {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        padding: 0px 0px;
+    }
+
+    .card {
+        flex: 15;
+        color: aliceblue;
+        font-family: sans-serif;
+        text-align: center;
+        padding: 15px;
+        transition: 0.8s;
+
+    }
+
+    .card:hover {
+        background-color: rgb(207, 207, 207);
+        transition: 0.8s;
+    }
+
+    .card1:hover .collapse-card1 {
+        display: block;
+    }
+
+    .collapse-card1 {
+        background-color: teal;
+        position: relative;
+        top: 10px;
+        display: none;
+        margin: 0 auto;
+
+    }
+
+    .card2:hover .collapse-card2 {
+        display: block;
+    }
+
+    .collapse-card2 {
+        background-color: teal;
+        position: relative;
+        top: 10px;
+        display: none;
+        margin: 0 auto;
+    }
+
+    .card3:hover .collapse-card3 {
+        display: block;
+    }
+
+    .collapse-card3 {
+        background-color: teal;
+        position: relative;
+        top: 10px;
+        display: none;
+        margin: 0 auto;
+    }
+
+    .card4:hover .collapse-card4 {
+        display: block;
+    }
+
+    .collapse-card4 {
+        background-color: teal;
+        position: relative;
+        top: 10px;
+        display: none;
+        margin: 0 auto;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .div1 {
+            width: 25%;
+        }
+
+        .div2 {
+            width: 25%;
+        }
+
+        .div3 {
+            width: 50%;
+        }
+
+        .div4 {
+            display: none;
+        }
+
+        .house {
+            margin-top: 1%;
+            margin-left: 1%;
+            width: 23%;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .person {
+            width: 23%;
+            background-color: rgb(255, 255, 255);
+            margin-top: 1%;
+            margin-left: 1%;
+        }
+
+    }
+
+    @media screen and (max-width: 1023px) and (min-width:768px) {
+        .div1 {
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .div2 {
+            display: none;
+        }
+
+        .div3 {
+            width: 100%;
+        }
+
+        .div4 {
+            display: none;
+        }
+
+        .house {
+            margin-left: 1%;
+            margin-top: 1%;
+            width: 48%;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .person {
+            margin-left: 1%;
+            margin-top: 1%;
+            width: 48%;
+            background-color: rgb(255, 255, 255);
+        }
+    }
+
+    @media screen and (max-width: 767px) and (min-width:0px) {
+        .div1 {
+            width: 80%;
+        }
+
+        .div2 {
+            display: none;
+        }
+
+        .div3 {
+            display: none;
+        }
+
+        .div4 {
+            display: block;
+            width: 20%;
+        }
+
+        .house {
+            margin-top: 1%;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .person {
+            margin-top: 1%;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+        }
+    }
+
+    /* end-menutop */
+    /* main */
+    .container {
+        max-width: 95%;
+        height: fit-content;
+        margin: 0 auto;
+        background-color: white;
+    }
+
+    .house {
+        position: relative;
+        height: fit-content;
+        display: inline-block;
+
+    }
+
+    .name_house {
+        color: white;
+        position: absolute;
+        display: inline;
+        background-color: black;
+        padding: 10px 10px;
+        width: fit-content;
+        z-index: 3;
+    }
+
+    .img_house {
+        position: relative;
+        width: 100%;
+    }
+
+    .person {
+        height: fit-content;
+        display: inline-block;
+        position: relative;
+
+    }
+
+    .img_person {
+        position: relative;
+        width: 100%;
+    }
+
+    .text_name {
+        font-weight: 300;
+    }
+
+    .text_job {
+        font-weight: 100;
+        color: rgb(206, 206, 206);
+    }
+
+    .contact {
+        width: 100%;
+        text-align: center;
+        height: 40px;
+        background-color: rgb(240, 240, 240);
+    }
+
+    .contact:hover {
+        background-color: rgb(224, 224, 224);
+        cursor: pointer;
+    }
+
+    .text_contact {
+        position: relative;
+        top: 30%;
+    }
+
+    ::placeholder {
+        font-size: 15px;
+    }
+
+    .input {
+        padding: 0px 10px;
+        display: block;
+        width: 100%;
+        height: 40px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: 1px solid rgb(207, 207, 207);
+    }
+
+    .button {
+        background-color: black;
+        width: fit-content;
+        color: white;
+        padding: 12px 18px;
+        margin-top: 20px;
+    }
+
+    .button:hover {
+        background-color: rgb(155, 155, 155);
+        cursor: pointer;
+    }
+
+    .map {
+        margin-top: 20px;
+        position: relative;
+        width: 100%;
+    }
+
+    .img_map {
+        position: relative;
+        width: 100%;
+    }
+
+    /* end-main */
+    /* footer */
+    .footer {
+        margin-top: 10px;
+        height: 80px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        position: relative;
+
+    }
+
+    .text_footer {
+        top: 30%;
+        position: relative;
+    }
+</style>
+
+<body>
+    <!-- menutop -->
+    <div class="menutop">
+        <div class="div1">
+            <h3 class="name-shop">Thanh Dat Shop</h3>
+        </div>
+        <div class="div2"></div>
+        <div class="div3 all-card">
+            <div class="card card1">
+                <label for="">Home</label>
+                <div class="collapse-card1">
+                    <div>card</div>
+                    <div>card</div>
+                    <div>card</div>
+                    <div>card</div>
+                </div>
+            </div>
+            <div class="card card2 ">
+                <label for="">Category</label>
+                <div class="collapse-card2">
+                    <div>card</div>
+                    <div>card</div>
+                    <div>card</div>
+                    <div>card</div>
+                </div>
+            </div>
+            <div class="card card3">
+                <label for="">News</label>
+                <div class="collapse-card3">
+                    <div>card</div>
+                    <div>card</div>
+                    <div>card</div>
+                    <div>card</div>
+                </div>
+            </div>
+            <div class="card card4">
+                <label for="">Information</label>
+                <div class="collapse-card4">
+                    <div>card</div>
+                    <div>card</div>
+                    <div>card</div>
+                    <div>card</div>
+                </div>
+            </div>
+        </div>
+        <div class="div4">
+            <img class="icon-menu"
+                src="https://cdn.icon-icons.com/icons2/916/PNG/512/Menu_icon_icon-icons.com_71858.png">
+            <div class="cards" id="cards">
+                <input type="number" min="0" value="0" style="display:none" class="count">
+                <ul class="list_card">
+                    <li>
+                        <div class="icon_card1 icon_card" id="">Home</div>
+                    </li>
+                    <li>
+                        <div class="icon_card2 icon_card">Category</div>
+                    </li>
+                    <li>
+                        <div class="icon_card3 icon_card">News</div>
+                    </li>
+                    <li>
+                        <div class="icon_card4 icon_card">Information</div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end-menutop -->
+    <!-- main -->
+    <img style="max-width:100%" src="https://www.w3schools.com/w3images/architect.jpg" alt="top-main">
+    <div class="container">
+        <h2 style="font-family: sans-serif;font-weight: 100;">Projects</h2>
+        <hr>
+        <div class="houses">
+            <div class="house1 house">
+                <span class="name_house">Summer House</span>
+                <img class="img_house" src="https://www.w3schools.com/w3images/house5.jpg" alt="">
+
+            </div>
+            <div class="house2 house">
+                <span class="name_house">Summer House</span>
+                <img class="img_house" src="https://www.w3schools.com/w3images/house2.jpg" alt="">
+            </div>
+            <div class="house3 house">
+                <span class="name_house">Renovated</span>
+                <img class="img_house" src="https://www.w3schools.com/w3images/house3.jpg" alt="">
+            </div>
+            <div class="house4 house">
+                <span class="name_house">Barn House</span>
+                <img class="img_house" src="https://www.w3schools.com/w3images/house4.jpg" alt="">
+            </div>
+            <div class="house5 house">
+                <span class="name_house">Summer House</span>
+                <img class="img_house" src="https://www.w3schools.com/w3images/house5.jpg" alt="">
+            </div>
+            <div class="house6 house">
+                <span class="name_house">Brick House</span>
+                <img class="img_house" src="https://www.w3schools.com/w3images/house5.jpg" alt="">
+            </div>
+            <div class="house7 house">
+                <span class="name_house">Renovated</span>
+                <img class="img_house" src="https://www.w3schools.com/w3images/house4.jpg" alt="">
+            </div>
+            <div class="house8 house">
+                <span class="name_house">Barn House</span>
+                <img class="img_house" src="https://www.w3schools.com/w3images/house3.jpg" alt="">
+            </div>
+        </div>
+
+        <h2 style="font-family: sans-serif;font-weight: 100;">About</h2>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim
+            veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <div class="persons">
+            <div class="person person1">
+                <img src="https://www.w3schools.com/w3images/team2.jpg" alt="" class="img_person">
+                <h3 class="text_name">John Doe</h3>
+                <h5 class="text_job">CEO & Founder</h5>
+                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                </p>
+                <div class="contact"><span class="text_contact">Contact</span></div>
+            </div>
+            <div class="person person2">
+                <img src="https://www.w3schools.com/w3images/team1.jpg" alt="" class="img_person">
+                <h3 class="text_name">Jane Doe</h3>
+                <h5 class="text_job">Architect</h5>
+                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                </p>
+                <div class="contact"><span class="text_contact">Contact</span></div>
+            </div>
+            <div class="person person3">
+                <img src="https://www.w3schools.com/w3images/team3.jpg" alt="" class="img_person">
+                <h3 class="text_name">Mike Ross</h3>
+                <h5 class="text_job">Architect</h5>
+                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                </p>
+                <div class="contact"><span class="text_contact">Contact</span></div>
+            </div>
+            <div class="person person4">
+                <img src="https://www.w3schools.com/w3images/team4.jpg" alt="" class="img_person">
+                <h3 class="text_name">Dan Star</h3>
+                <h5 class="text_job">Architect</h5>
+                <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                </p>
+                <div class="contact"><span class="text_contact">Contact</span></div>
+            </div>
+        </div>
+        <h2 style="font-family: sans-serif;font-weight: 100;">Contact</h2>
+        <hr>
+        <p>Lets get in touch and talk about your next project.</p>
+        <form class="inf" action="#">
+            <input class="input" type="text" placeholder="Name">
+            <input class="input" type="text" placeholder="Email">
+            <input class="input" type="text" placeholder="Subject">
+            <input class="input" type="text" placeholder="Comment">
+
+            <div class="button">SEND MESSAGE</div>
+        </form>
+
+        <div class="map">
+            <img class="img_map" src="https://www.w3schools.com/w3images/map.jpg" alt="">
+        </div>
+    </div>
+    <div class="footer"><span class="text_footer"> MADE BY: THANH DAT</span></div>
+</body>
+<script>
+    $(".icon-menu").click(function () {
+        var count = parseInt($(".count").val());
+        count = count + 1;
+        $(".count").val(count);
+        if (count % 2 != 0) {
+            $(".cards").attr('style', 'display:block');
+        } else {
+            $(".cards").attr('style', 'display:none');
+        }
+
+    })
+</script>
+
+</html>
