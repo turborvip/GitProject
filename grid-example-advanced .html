@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        height: 2000px;
+    }
+
+    .grid-container {
+        font-family: sans-serif;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 150px auto auto auto auto auto;
+        grid-template-rows: 50px auto auto 50px;
+        grid-template-areas: "header header header header header header"
+            "menu main main main new ads"
+            "menu main main main new ads"
+            "footer footer footer footer footer footer";
+        height: 500px;
+        background-color: teal;
+        /* grid-gap: 10px; */
+
+
+    }
+
+    .header {
+        background-color: palevioletred;
+        grid-area: header;
+    }
+
+    .menu {
+        grid-area: menu;
+        background-color: powderblue;
+    }
+
+    .main {
+        grid-area: main;
+        background-color: palegreen;
+    }
+
+    .new {
+        grid-area: new;
+        background-color: palegoldenrod;
+    }
+
+    .ads {
+        grid-area: ads;
+        background-color: pink;
+    }
+
+    .footer {
+        grid-area: footer;
+        background-color: plum;
+    }
+
+    @media screen and (min-width:0px) and (max-width :414px) {
+        .grid-container {
+            grid-template-areas: "header header header header header header"
+                "main main main main new new"
+                "main main main main new new"
+                "footer footer footer footer footer footer";
+            grid-template-columns: 150px auto auto auto auto auto;
+            grid-template-rows: 50px auto auto 50px;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .ads {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width:415px) and (max-width :1024px) {
+        .grid-container {
+            grid-template-areas: "header header header header header header"
+                "menu menu menu menu menu menu"
+                "main main main main new new"
+                "footer footer footer footer footer footer";
+            grid-template-columns: 150px auto auto auto auto auto;
+            grid-template-rows: 50px 30px auto 50px;
+        }
+
+        .ads {
+            display: none;
+        }
+
+    }
+
+    @media screen and (min-width:1025px) {}
+</style>
+
+<body>
+    <div class="grid-container">
+        <div class="header">Header</div>
+        <div class="menu">Menu</div>
+        <div class="main">Main</div>
+        <div class="new">New</div>
+        <div class="ads">Ads</div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+
+</html>

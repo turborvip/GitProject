@@ -97,10 +97,13 @@
     }
 
     .icon_card {
+        position: relative;
         list-style-type: none;
-        padding: 20px 40px;
+        padding: 20px 30px;
         text-align: left;
-        margin-left: -40px;
+        margin-left: -100px;
+        background-color: black;
+        max-width: 200px;
     }
 
     .icon_card:hover {
@@ -111,6 +114,7 @@
     .list_card {
         list-style-type: none;
         margin: 0;
+        float: left;
     }
 
     .all-card {
@@ -415,7 +419,7 @@
         <div class="div2"></div>
         <div class="div3 all-card">
             <div class="card card1">
-                <label for="">Home</label>
+                <a href="#"><label for="">Home</label></a>
                 <div class="collapse-card1">
                     <div>card</div>
                     <div>card</div>
@@ -424,7 +428,7 @@
                 </div>
             </div>
             <div class="card card2 ">
-                <label for="">Category</label>
+                <a href="#about"><label for="">Category</label></a>
                 <div class="collapse-card2">
                     <div>card</div>
                     <div>card</div>
@@ -432,15 +436,17 @@
                     <div>card</div>
                 </div>
             </div>
-            <div class="card card3">
-                <label for="">News</label>
-                <div class="collapse-card3">
-                    <div>card</div>
-                    <div>card</div>
-                    <div>card</div>
-                    <div>card</div>
+            <a href="#project">
+                <div class="card card3">
+                    <label for="">News</label>
+                    <div class="collapse-card3">
+                        <div>card</div>
+                        <div>card</div>
+                        <div>card</div>
+                        <div>card</div>
+                    </div>
                 </div>
-            </div>
+            </a>
             <div class="card card4">
                 <label for="">Information</label>
                 <div class="collapse-card4">
@@ -478,7 +484,7 @@
     <!-- main -->
     <img style="max-width:100%" src="https://www.w3schools.com/w3images/architect.jpg" alt="top-main">
     <div class="container">
-        <h2 style="font-family: sans-serif;font-weight: 100;">Projects</h2>
+        <h2 style="font-family: sans-serif;font-weight: 100;" id="project">Projects</h2>
         <hr>
         <div class="houses">
             <div class="house1 house">
@@ -516,7 +522,7 @@
             </div>
         </div>
 
-        <h2 style="font-family: sans-serif;font-weight: 100;">About</h2>
+        <h2 style="font-family: sans-serif;font-weight: 100;" id="about">About</h2>
         <hr>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna
